@@ -18,6 +18,18 @@ module.exports = {
                     places: './src/features/Places',
                     shared: './src/features/Shared',
                     ui: './src/interface',
+                    // Additional aliases
+                    utils: './src/utils',
+                    hooks: './src/hooks',
+                    services: './src/services',
+                    config: './src/config',
+                    tailwind: './src/tailwind', // tailwind  for styling
+                    components: './src/components',
+                    assets: './assets',
+                    constants: './src/constants',
+                    navigation: './src/navigation',
+                    screens: './src/screens',
+                    theme: './src/theme',
                 },
             },
         ],
