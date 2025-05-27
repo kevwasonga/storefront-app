@@ -3,7 +3,7 @@ import { EventRegister } from 'react-native-event-listeners';
 import { countries } from 'countries-list';
 import { set } from './Storage';
 import { getCurrentLocation } from './Geo';
-import configuration from 'config';
+import configuration from '../config';
 import { currency, number as numberSettings } from './Settings';
 import { countryCodes } from 'react-native-country-codes-picker';
 
@@ -117,7 +117,7 @@ export default class HelperUtil {
      * @memberof HelperUtil
      */
     static hasRequiredKeys() {
-        return 'FLEETBASE_KEY' in configuration && 'STOREFRONT_KEY' in configuration;
+        return 'FLEETBASE_API_KEY' in configuration && 'STOREFRONT_KEY' in configuration;
     }
 
     /**
