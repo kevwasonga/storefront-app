@@ -1,5 +1,5 @@
 import Storefront from '@fleetbase/storefront';
-import config from 'config';
+import config from '../config';
 
 const { STOREFRONT_KEY, FLEETBASE_HOST } = config;
 let storefront, adapter;
