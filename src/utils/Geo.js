@@ -8,7 +8,7 @@ import { set, get } from './Storage';
 import { isAndroid } from './Helper';
 import { haversine } from './Calculate';
 import axios from 'axios';
-import config from 'config';
+import config from '../config';
 
 const { GOOGLE_MAPS_KEY } = config;
 const { emit } = EventRegister;
