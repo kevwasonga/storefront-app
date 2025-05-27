@@ -1,4 +1,4 @@
-import { faShoppingCart, faStore, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faStore, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AccountStack from 'account/AccountStack';
