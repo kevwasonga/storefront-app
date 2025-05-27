@@ -17,45 +17,59 @@ import { set } from 'utils/Storage';
  */
 const BootScreen = ({ navigation }) => {
     const [error, setError] = useState(null);
+
+    console.log('[BootScreen] Rendering BootScreen component');
+
     // If the required keys are not provided display the setup warning screen
     if (!hasRequiredKeys()) {
+        console.log('[BootScreen] Missing required keys, showing SetupWarningScreen');
         return <SetupWarningScreen />;
     }
 
     // Initialize Storefront SDK
     const storefront = useStorefront();
 
-    // If the storefront SDK throws and error display through setup warning
+    // If the storefront SDK throws an error display through setup warning
     if (storefront instanceof Error) {
+        console.log('[BootScreen] Storefront SDK error:', storefront);
         return <SetupWarningScreen error={storefront} />;
     }
 
     // Initialize i18n
     setI18nConfig();
+    console.log('[BootScreen] i18n config set');
 
     useEffect(() => {
-        // Fetch the about() information
+        console.log('[BootScreen] useEffect started - fetching about info');
+
         storefront
             .about()
             .then((info) => {
-                // Store storefront/network info
+                console.log('[BootScreen] Storefront info received:', info);
+
                 set('info', info);
 
-                // if is single store only go to storefront screens
                 if (info.is_store) {
+                    console.log('[BootScreen] Detected single store, navigating to StorefrontScreen');
                     return navigation.navigate('StorefrontScreen', { info });
-                }
-
-                // if is network/multi-vendor
+                } 
+                
                 if (info.is_network) {
+                    console.log('[BootScreen] Detected network/multi-vendor, navigating to NetworkScreen');
                     return navigation.navigate('NetworkScreen', { info });
-                }
+                } 
+                
+                // Added else block for unexpected response structure
+                console.log('[BootScreen] Unexpected store/network type in API response:', info);
+                setError(new Error('Invalid store/network type in API response.'));
             })
             .catch((error) => {
+                console.log('[BootScreen] Error fetching storefront info:', error);
                 setError(error);
                 logError(error, '[  Error fetching storefront info!  ]');
             })
             .finally(() => {
+                console.log('[BootScreen] Finally block - hiding boot splash in 300ms');
                 setTimeout(() => {
                     RNBootSplash.hide();
                 }, 300);
@@ -63,6 +77,7 @@ const BootScreen = ({ navigation }) => {
     }, []);
 
     if (error) {
+        console.log('[BootScreen] Rendering SetupWarningScreen due to error:', error);
         return <SetupWarningScreen error={error} />;
     }
 
