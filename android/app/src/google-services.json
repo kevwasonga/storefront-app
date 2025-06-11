@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824732266604",
+    "project_id": "storefrontapp-dd3f8",
+    "storage_bucket": "storefrontapp-dd3f8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824732266604:android:b5b10ecc0b565b92a16849",
+        "android_client_info": {
+          "package_name": "com.storefrontapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIfpp4DZPkLX_8RtHt0Q06ES-0ZHGgWAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
